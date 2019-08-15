@@ -50,3 +50,15 @@ router.route('/movies/:id').get(function(req, res){
         res.json(movie);
     });
 });
+
+router.route('/movies/:id').delete(function(req, res) {
+    Movie.remove({_id: req.param.id}, function(err, movie) {
+        if (err) {
+            return res.send(err);
+        }
+
+        res.json({message: 'Successfully deleted'});
+    });
+});
+
+module.exports = router;
