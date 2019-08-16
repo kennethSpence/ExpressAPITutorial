@@ -18,6 +18,7 @@ router.route('/movies')
             if (err) {
                 return res.send(err);
             }
+            console.log(movie);
             res.send({message: 'Movie Added'});
         });
     });
